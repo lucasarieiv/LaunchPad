@@ -90,7 +90,7 @@
         text-align: center;
         display: block;
         padding: 5px;
-        margin: 60px auto 0px auto;
+        margin: 40px auto 0px auto;
         width: 90px;
         font-size: 24px;
         font-family: Arial, Heveltica, sans-serif;
@@ -103,8 +103,8 @@
       }
 
       .loopOff {
+        box-shadow: inset 4px 4px 10px #2f2f2f;
         border-bottom: 6px solid #a31815;
-        /* background-color: #a31815; */
       }
 
     </style>
@@ -112,15 +112,15 @@
   <body>
 
     <div class="lauchPad">
-      <p id='keyBoard-1'><span class='letra'>A</span> <span id='loop-1' class='Loop'>LOOP</span></p>
-      <p id='keyBoard-2'><span class='letra'>S</span> <span id='loop-2' class='Loop'>LOOP</span></p>
-      <p id='keyBoard-3'><span class='letra'>D</span> <span id='loop-3' class='Loop'>LOOP</span></p>
-      <p id='keyBoard-4'><span class='letra'>F</span> <span id='loop-4' class='Loop'>LOOP</span></p>
+      <p id='keyBoard-1'><span class='letra'>A</span> <span id='loop-1' class='Loop loopOff'>LOOP OFF</span></p>
+      <p id='keyBoard-2'><span class='letra'>S</span> <span id='loop-2' class='Loop loopOff'>LOOP OFF</span></p>
+      <p id='keyBoard-3'><span class='letra'>D</span> <span id='loop-3' class='Loop loopOff'>LOOP OFF</span></p>
+      <p id='keyBoard-4'><span class='letra'>F</span> <span id='loop-4' class='Loop loopOff'>LOOP OFF</span></p>
       <hr>
-      <p id='keyBoard-5'><span class='letra'>G</span> <span id='loop-5' class='Loop'>LOOP</span></p>
-      <p id='keyBoard-6'><span class='letra'>H</span> <span id='loop-6' class='Loop'>LOOP</span></p>
-      <p id='keyBoard-7'><span class='letra'>Z</span> <span id='loop-7' class='Loop'>LOOP</span></p>
-      <p id='keyBoard-8'><span class='letra'>X</span> <span id='loop-8' class='Loop'>LOOP</span></p>
+      <p id='keyBoard-5'><span class='letra'>G</span> <span id='loop-5' class='Loop loopOff'>LOOP OFF</span></p>
+      <p id='keyBoard-6'><span class='letra'>H</span> <span id='loop-6' class='Loop loopOff'>LOOP OFF</span></p>
+      <p id='keyBoard-7'><span class='letra'>Z</span> <span id='loop-7' class='Loop loopOff'>LOOP OFF</span></p>
+      <p id='keyBoard-8'><span class='letra'>X</span> <span id='loop-8' class='Loop loopOff'>LOOP OFF</span></p>
     </div>
 
 
@@ -158,39 +158,32 @@
 
     <script type="text/javascript">
 
+
       $(function() {
 
-        if ($('#loop-1').click(function() {
-            $('#loop-1').addClass('loopOn');
-            $('#audio-1')[0].loop = true;
-            if ($('#loop-1').click(function() {
-              if ($('#audio-1')[0].loop == true) {
-                $('#audio-1')[0].loop = false;
-                $('#loop-1').removeClass('loopOn').addClass('loopOff');
-              }
-              else {
-                $('#loop-1').removeClass('loopOff').addClass('loopOn');
-                $('#audio-1')[0].loop = true;
-              }
-            }));
-        }));
-
-
-        if ($('#loop-2').click(function() {
-            $('#loop-2').addClass('loopOn');
-            $('#audio-2')[0].loop = true;
-            if ($('#loop-2').click(function() {
-              if ($('#audio-2')[0].loop == true) {
-                $('#audio-2')[0].loop = false;
-                $('#loop-2').removeClass('loopOn').addClass('loopOff');
-              }
-              else {
-                $('#loop-2').removeClass('loopOff').addClass('loopOn');
-                $('#audio-2')[0].loop = true;
-              }
-            }));
-        }));
-
+      $(this).click(function(event) {
+        asd = (event.target);
+        console.log(asd);
+        console.log($('span')[2]);
+        asd1 = ($('span')[3]);
+        if (asd == asd1) {
+          alert('Igual');
+        }
+      });
+        // if ($('#loop-1').click(function() {
+        //     $('#loop-1').removeClass('loopOff').addClass('loopOn').text('LOOP ON');
+        //     $('#audio-1')[0].loop = true;
+        //     if ($('#loop-1').click(function() {
+        //       if ($('#audio-1')[0].loop == true) {
+        //         $('#audio-1')[0].loop = false;
+        //         $('#loop-1').removeClass('loopOn').addClass('loopOff').text('LOOP OFF');
+        //       }
+        //       else {
+        //         $('#loop-1').removeClass('loopOff').addClass('loopOn').text('LOOP ON');
+        //         $('#audio-1')[0].loop = true;
+        //       }
+        //     }));
+        // }));
 
 
         $(this).keydown(function(key) {
@@ -245,66 +238,8 @@
         });
         $(this).keyup(function(key) {
           $('p').addClass('hover');
-
         });
       });
-
-      // $("p#keyBoard-1").click(function() {
-      //   $('source').attr('src','A.mp3');
-      //   $('p#keyBoard-1').removeClass().addClass('roxo');
-      //   $('audio')[0].load();
-      //   $('audio')[0].play();
-      // });
-      //
-      // $('p#keyBoard-2').click(function() {
-      //   $('source').attr('src','B.mp3');
-      //   $('p#keyBoard-2').removeClass().addClass('verde');
-      //   $('audio')[0].load();
-      //   $('audio')[0].play();
-      // })
-      //
-      // $('p#keyBoard-3').click(function() {
-      //   $('source').attr('src','C.mp3');
-      //   $('p#keyBoard-3').removeClass().addClass('azul');
-      //   $('audio')[0].load();
-      //   $('audio')[0].play();
-      // })
-      //
-      // $('p#keyBoard-4').click(function() {
-      //   $('source').attr('src','D.mp3');
-      //   $('p#keyBoard-4').removeClass().addClass('roxo');
-      //   $('audio')[0].load();
-      //   $('audio')[0].play();
-      // })
-      //
-      // $('p#keyBoard-5').click(function() {
-      //   $('source').attr('src','E.mp3');
-      //   $('p#keyBoard-5').removeClass().addClass('vermelho');
-      //   $('audio')[0].load();
-      //   $('audio')[0].play();
-      // })
-      //
-      // $('p#keyBoard-6').click(function() {
-      //   $('source').attr('src','F.mp3');
-      //   $('p#keyBoard-6').removeClass().addClass('rosa');
-      //   $('audio')[0].load();
-      //   $('audio')[0].play();
-      // })
-      //
-      // $('p#keyBoard-7').click(function() {
-      //   $('source').attr('src','G.mp3');
-      //   $('p#keyBoard-7').removeClass().addClass('amarelo');
-      //   $('audio')[0].load();
-      //   $('audio')[0].play();
-      // })
-      //
-      // $('p#keyBoard-8').click(function() {
-      //   $('source').attr('src','H.mp3');
-      //   $('p#keyBoard-8').removeClass().addClass('verde');
-      //   $('audio')[0].load();
-      //   $('audio')[0].play();
-      // })
-
     </script>
   </body>
 </html>
