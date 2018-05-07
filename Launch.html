@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Music</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style media="screen">
+
+      body {
+        background-color: #262626;
+      }
+
+      .lauchPad {
+        margin: 150px auto;
+        text-align: center;
+        width: 960px;
+        background-color: #ccc;
+        padding: 20px;
+        border-radius: 25px;
+      }
+
+      p {
+        width: 150px;
+        height: 150px;
+        display: inline-block;
+        margin: 20px;
+        position: relative;
+        padding: 10px 10px;
+        border-radius: 10px;
+        box-shadow: 4px 4px 50px #2f2f2f;
+        border: 6px solid transparent;
+        font-weight: bold;
+      }
+
+      .letra {
+        margin: 0 auto;
+        width: 90px;
+        position: relative;
+        top: 30px;
+        font-size: 28px;
+        font-family: Arial, Heveltica, sans-serif;
+        color: #373737;
+        display: block;
+      }
+
+      .roxo {
+        box-shadow: 4px 4px 50px #9b0bdf;
+        border: 6px solid #9b0bdf;
+        color: #9b0bdf;
+      }
+
+      .verde {
+        box-shadow: 4px 4px 50px #23db25;
+        border: 6px solid #23db25;
+        color: #23db25;
+      }
+
+      .azul {
+        box-shadow: 4px 4px 50px #23aadb;
+        border: 6px solid #23aadb;
+        color: #23aadb;
+      }
+
+      .amarelo {
+        box-shadow: 4px 4px 50px #e2e020;
+        border: 6px solid #e2e020;
+        color: #e2e020;
+      }
+
+      .vermelho {
+        box-shadow: 4px 4px 50px #a71212;
+        border: 6px solid #a71212;
+        color: #a71212;
+      }
+
+      .rosa {
+        box-shadow: 4px 4px 50px #ec4ebf;
+        border: 6px solid #ec4ebf;
+        color: #ec4ebf;
+      }
+
+      .hover {
+        transition: 1.5s;
+        box-shadow: 4px 4px 50px #2f2f2f;
+        border: 6px solid transparent;
+        color: #373737;
+      }
+
+      span.Loop {
+        text-align: center;
+        display: block;
+        padding: 5px;
+        margin: 60px auto 0px auto;
+        width: 90px;
+        font-size: 24px;
+        font-family: Arial, Heveltica, sans-serif;
+        color: #373737;
+        cursor: pointer;
+      }
+
+      .loopOn {
+        border-bottom: 6px solid #2ccc1f;
+      }
+
+      .loopOff {
+        border-bottom: 6px solid #a31815;
+        /* background-color: #a31815; */
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="lauchPad">
+      <p id='keyBoard-1'><span class='letra'>A</span> <span id='loop-1' class='Loop'>LOOP</span></p>
+      <p id='keyBoard-2'><span class='letra'>S</span> <span id='loop-2' class='Loop'>LOOP</span></p>
+      <p id='keyBoard-3'><span class='letra'>D</span> <span id='loop-3' class='Loop'>LOOP</span></p>
+      <p id='keyBoard-4'><span class='letra'>F</span> <span id='loop-4' class='Loop'>LOOP</span></p>
+      <hr>
+      <p id='keyBoard-5'><span class='letra'>G</span> <span id='loop-5' class='Loop'>LOOP</span></p>
+      <p id='keyBoard-6'><span class='letra'>H</span> <span id='loop-6' class='Loop'>LOOP</span></p>
+      <p id='keyBoard-7'><span class='letra'>Z</span> <span id='loop-7' class='Loop'>LOOP</span></p>
+      <p id='keyBoard-8'><span class='letra'>X</span> <span id='loop-8' class='Loop'>LOOP</span></p>
+    </div>
+
+
+    <audio id='audio-1'>
+      <source src='A.mp3' type="audio/mp3">
+    </audio>
+
+    <audio id='audio-2'>
+      <source src='B.mp3' type="audio/mp3">
+    </audio>
+
+    <audio id='audio-3'>
+      <source src='C.mp3' type="audio/mp3">
+    </audio>
+
+    <audio id='audio-4'>
+      <source src='D.mp3' type="audio/mp3">
+    </audio>
+
+    <audio id='audio-5'>
+      <source src='E.mp3' type="audio/mp3">
+    </audio>
+
+    <audio id='audio-6'>
+      <source src='F.mp3' type="audio/mp3">
+    </audio>
+
+    <audio id='audio-7'>
+      <source src='G.mp3' type="audio/mp3">
+    </audio>
+
+    <audio id='audio-8'>
+      <source src='H.mp3' type="audio/mp3">
+    </audio>
+
+    <script type="text/javascript">
+
+      $(function() {
+
+        if ($('#loop-1').click(function() {
+            $('#loop-1').addClass('loopOn');
+            $('#audio-1')[0].loop = true;
+            if ($('#loop-1').click(function() {
+              if ($('#audio-1')[0].loop == true) {
+                $('#audio-1')[0].loop = false;
+                $('#loop-1').removeClass('loopOn').addClass('loopOff');
+              }
+              else {
+                $('#loop-1').removeClass('loopOff').addClass('loopOn');
+                $('#audio-1')[0].loop = true;
+              }
+            }));
+        }));
+
+
+        if ($('#loop-2').click(function() {
+            $('#loop-2').addClass('loopOn');
+            $('#audio-2')[0].loop = true;
+            if ($('#loop-2').click(function() {
+              if ($('#audio-2')[0].loop == true) {
+                $('#audio-2')[0].loop = false;
+                $('#loop-2').removeClass('loopOn').addClass('loopOff');
+              }
+              else {
+                $('#loop-2').removeClass('loopOff').addClass('loopOn');
+                $('#audio-2')[0].loop = true;
+              }
+            }));
+        }));
+
+
+
+        $(this).keydown(function(key) {
+          if (key.keyCode == '65') {
+            $('p#keyBoard-1').removeClass().addClass('roxo');
+            $('#audio-1')[0].load();
+            $('#audio-1')[0].play();
+          }
+          else if(key.keyCode == '83') {
+            // $('source').attr('src','B.mp3');
+            $('p#keyBoard-2').removeClass().addClass('verde');
+            $('#audio-2')[0].load();
+            $('#audio-2')[0].play();
+          }
+          else if(key.keyCode == '68') {
+            // $('source').attr('src', 'C.mp3');
+            $('p#keyBoard-3').removeClass().addClass('azul');
+            $('#audio-3')[0].load();
+            $('#audio-3')[0].play();
+
+          }
+          else if(key.keyCode == '70') {
+            // $('source').attr('src', 'D.mp3');
+            $('p#keyBoard-4').removeClass().addClass('roxo');
+            $('#audio-4')[0].load();
+            $('#audio-4')[0].play();
+          }
+          else if (key.keyCode == '71') {
+            // $('source').attr('src', 'E.mp3');
+            $('p#keyBoard-5').removeClass().addClass('vermelho');
+            $('#audio-5')[0].load();
+            $('#audio-5')[0].play();
+          }
+          else if (key.keyCode == '72') {
+            // $('source').attr('src', 'F.mp3');
+            $('p#keyBoard-6').removeClass().addClass('rosa');
+            $('#audio-6')[0].load();
+            $('#audio-6')[0].play();
+          }
+          else if (key.keyCode == '90') {
+            // $('source').attr('src', 'G.mp3');
+            $('p#keyBoard-7').removeClass().addClass('amarelo');
+            $('#audio-7')[0].load();
+            $('#audio-7')[0].play();
+          }
+          else if (key.keyCode == '88') {
+            // $('source').attr('src', 'H.mp3');
+            $('p#keyBoard-8').removeClass().addClass('verde');
+            $('#audio-8')[0].load();
+            $('#audio-8')[0].play();
+          }
+        });
+        $(this).keyup(function(key) {
+          $('p').addClass('hover');
+
+        });
+      });
+
+      // $("p#keyBoard-1").click(function() {
+      //   $('source').attr('src','A.mp3');
+      //   $('p#keyBoard-1').removeClass().addClass('roxo');
+      //   $('audio')[0].load();
+      //   $('audio')[0].play();
+      // });
+      //
+      // $('p#keyBoard-2').click(function() {
+      //   $('source').attr('src','B.mp3');
+      //   $('p#keyBoard-2').removeClass().addClass('verde');
+      //   $('audio')[0].load();
+      //   $('audio')[0].play();
+      // })
+      //
+      // $('p#keyBoard-3').click(function() {
+      //   $('source').attr('src','C.mp3');
+      //   $('p#keyBoard-3').removeClass().addClass('azul');
+      //   $('audio')[0].load();
+      //   $('audio')[0].play();
+      // })
+      //
+      // $('p#keyBoard-4').click(function() {
+      //   $('source').attr('src','D.mp3');
+      //   $('p#keyBoard-4').removeClass().addClass('roxo');
+      //   $('audio')[0].load();
+      //   $('audio')[0].play();
+      // })
+      //
+      // $('p#keyBoard-5').click(function() {
+      //   $('source').attr('src','E.mp3');
+      //   $('p#keyBoard-5').removeClass().addClass('vermelho');
+      //   $('audio')[0].load();
+      //   $('audio')[0].play();
+      // })
+      //
+      // $('p#keyBoard-6').click(function() {
+      //   $('source').attr('src','F.mp3');
+      //   $('p#keyBoard-6').removeClass().addClass('rosa');
+      //   $('audio')[0].load();
+      //   $('audio')[0].play();
+      // })
+      //
+      // $('p#keyBoard-7').click(function() {
+      //   $('source').attr('src','G.mp3');
+      //   $('p#keyBoard-7').removeClass().addClass('amarelo');
+      //   $('audio')[0].load();
+      //   $('audio')[0].play();
+      // })
+      //
+      // $('p#keyBoard-8').click(function() {
+      //   $('source').attr('src','H.mp3');
+      //   $('p#keyBoard-8').removeClass().addClass('verde');
+      //   $('audio')[0].load();
+      //   $('audio')[0].play();
+      // })
+
+    </script>
+  </body>
+</html>
